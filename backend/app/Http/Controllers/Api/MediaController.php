@@ -11,11 +11,6 @@ use Illuminate\Support\Facades\Storage;
 
 class MediaController extends Controller
 {
-    public function __construct()
-    {
-        $this->authorizeResource(Media::class, 'media');
-    }
-
     public function index(Request $request)
     {
         $media = Media::query()
@@ -53,7 +48,9 @@ class MediaController extends Controller
 
     public function destroy(Media $media)
     {
-        Storage::disk($media->disk)->delete($media->path);
+        if (! empty($media->path)) {
+            Storage::disk($media->disk)->delete($media->path);
+        }
 
         $media->delete();
 

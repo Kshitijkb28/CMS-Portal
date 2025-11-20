@@ -50,7 +50,7 @@ const MediaManager = () => {
 
     try {
       await api.delete(`/media/${item.id}`);
-      loadMedia();
+      setItems((current) => current.filter((media) => media.id !== item.id));
     } catch (err) {
       alert('Unable to delete the file.');
     }
@@ -73,16 +73,25 @@ const MediaManager = () => {
         <p>Loading files...</p>
       ) : (
         <div className="media-grid">
-          {items.map((item) => (
-            <article key={item.id} className="media-card">
-              <div className="media-card__body">
-                <p>{item.original_name}</p>
-                <small>{Math.round(item.size / 1024)} KB</small>
-                <small>{item.mime_type}</small>
-              </div>
-              <button type="button" onClick={() => removeItem(item)}>Delete</button>
-            </article>
-          ))}
+          {items.map((item) => {
+            const isImage = item.mime_type?.startsWith('image/');
+
+            return (
+              <article key={item.id} className="media-card">
+                {isImage && item.url && (
+                  <div className="media-card__thumb">
+                    <img src={item.url} alt={item.original_name} />
+                  </div>
+                )}
+                <div className="media-card__body">
+                  <p>{item.original_name}</p>
+                  <small>{Math.round(item.size / 1024)} KB</small>
+                  <small>{item.mime_type}</small>
+                </div>
+                <button type="button" onClick={() => removeItem(item)}>Delete</button>
+              </article>
+            );
+          })}
         </div>
       )}
     </section>

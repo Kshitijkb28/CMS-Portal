@@ -30,7 +30,6 @@ class AppServiceProvider extends ServiceProvider
     {
         Gate::policy(Post::class, PostPolicy::class);
         Gate::policy(Page::class, PagePolicy::class);
-        Gate::policy(Media::class, MediaPolicy::class);
 
         Gate::define('admin', fn ($user) => (bool) $user?->is_admin);
         Route::aliasMiddleware('auth', \App\Http\Middleware\Authenticate::class);

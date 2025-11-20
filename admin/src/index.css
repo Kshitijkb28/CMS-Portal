@@ -250,6 +250,19 @@ td {
   gap: 0.5rem;
 }
 
+.media-card__thumb {
+  width: 100%;
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+.media-card__thumb img {
+  display: block;
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
 .media-card button {
   border: none;
   background: #fee2e2;
