@@ -1,0 +1,277 @@
+Assignment (Laravel + React CMS)
+Technology Requirements
+•
+
+Laravel 12 (mandatory)
+
+•
+
+PHP 8.2+
+
+•
+
+MySQL/PostgreSQL
+
+•
+
+React 18+
+
+•
+
+Blade for public website templates
+
+Project Overview
+Build a mini Content Management System (CMS) where:
+1. Public Website (Laravel 12 + Blade)
+•
+
+Home page
+
+•
+
+Blog listing
+
+•
+
+Blog detail
+
+•
+
+Static pages (About, Contact, etc.)
+
+2. Admin Panel (React)
+•
+
+Authentication using Laravel 12 API
+
+•
+
+CRUD for:
+o
+
+Posts
+
+o
+
+Pages
+
+o
+
+Media uploads
+
+•
+
+Publish/unpublish toggle
+
+•
+
+Dashboard with content stats
+
+3. Backend API (Laravel 12)
+Laravel 12 will provide REST APIs consumed by the React admin panel.
+
+Detailed Requirements
+
+A. Laravel 12 Backend
+Models
+•
+
+User
+
+•
+
+Post
+
+•
+
+Page
+
+•
+
+Category (optional)
+
+•
+
+Media (optional)
+
+Features
+•
+
+Authentication
+
+•
+
+Form Requests for validation
+
+•
+
+API Resources for JSON output
+
+•
+
+Slug generation for SEO URLs
+
+•
+
+Policies for admin access
+
+•
+
+Store images in storage/app/public
+
+APIs to Implement
+Feature
+
+Endpoint
+
+Login
+
+POST /api/login
+
+Logout
+
+POST /api/logout
+
+Authenticated User GET /api/me
+Posts CRUD
+
+/api/posts
+
+Pages CRUD
+
+/api/pages
+
+Media Upload
+
+POST /api/media/upload
+
+Publish/Unpublish PATCH /api/posts/{id}/publish
+
+B. React Admin Panel
+Pages
+•
+
+Login
+
+•
+
+Dashboard
+
+•
+
+Posts (List, Create, Edit, Delete)
+
+•
+
+Pages (List, Create, Edit, Delete)
+
+•
+
+Media Manager
+
+•
+
+Logout
+
+Technical Guidelines
+•
+
+Use React Router
+
+•
+
+State management: Redux Toolkit or Context API
+
+•
+
+Use WYSIWYG editor (Quill, TinyMCE, etc.)
+
+•
+
+File upload integration with Laravel API
+
+•
+
+Protected routes after login
+
+C. Public Website (Laravel 12 + Blade)
+Pages
+•
+
+Home (latest posts)
+
+•
+
+Blog listing
+
+•
+
+Blog details
+
+•
+
+Dynamic Pages (/{slug})
+
+•
+
+Global layout with header & footer
+
+•
+
+SEO-friendly meta tags
+
+D. Bonus Tasks
+•
+
+Role/Permission system
+
+•
+
+Search functionality
+
+•
+
+Categories & tags
+
+•
+
+Media library with folder support
+
+•
+
+Comments on posts
+
+•
+
+Caching for faster performance
+
+Deliverables
+Candidate must submit:
+•
+
+GitHub repo with two folders:
+o
+
+/backend → Laravel project
+
+o
+
+/admin → React project
+
+•
+
+README with setup steps
+
+•
+
+.env example
+
+•
+
+DB migrations or SQL dump
+
+•
+
+(Optional) Video walkthrough
+
+
